@@ -61,4 +61,3 @@ enum DataType {
   DT_HALF_REF = 119;
   DT_RESOURCE_REF = 120;
 }
-// LINT.ThenChange(https://www.tensorflow.org/code/tensorflow/c/c_api.h,https://www.tensorflow.org/code/tensorflow/go/tensor.go)

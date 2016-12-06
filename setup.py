@@ -20,6 +20,7 @@ setuptools.setup(
         '': ['protos/*.proto'],
     },
   setup_requires=[
+          'tensorflow',
           'grpcio',
           'cython',
           'grpcio-tools'
