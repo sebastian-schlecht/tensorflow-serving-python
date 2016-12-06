@@ -3,7 +3,7 @@ syntax = "proto3";
 package tensorflow.serving;
 option cc_enable_arenas = true;
 
-import "wrappers.proto";
+import "tensorflow_serving_python/protos/wrappers.proto";
 
 // Metadata for an inference request such as the model name and version.
 message ModelSpec {

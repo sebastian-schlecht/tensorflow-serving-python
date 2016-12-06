@@ -3,7 +3,7 @@ syntax = "proto3";
 package tensorflow.serving;
 option cc_enable_arenas = true;
 
-import "predict.proto";
+import "tensorflow_serving_python/protos/predict.proto";
 
 // PredictionService provides access to machine-learned models loaded by
 // model_servers.
