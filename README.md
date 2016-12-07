@@ -20,8 +20,8 @@ This package depends on the following pip modules, so you might want to install 
  - tensorflow
  
  
-Alternatively, we produce a python wheel to be installed with:
-```pip install http://www.mealomi.com/storage/tensor_flow_serving_python/tensorflow_serving_python-0.1-py2-none-any.whl```
+Alternatively, we offer an unoffial python wheel to be installed with:
+```pip install http://www.mealomi.com/storage/tensorflow_serving_python/tensorflow_serving_python-0.1-py2-none-any.whl```
 
 *Note*
 When running on Linux, make sure pip is upgraded via ```pip install --upgrade pip``` such that TensorFlow is installed correctly.
