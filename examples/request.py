@@ -12,4 +12,4 @@ if __name__ == "__main__":
 
     data = open("cat.jpg", "rb").read()
     client = TFClient(args.host, args.port)
-    print client.make_prediction(data, timeout=5)
+    print client.make_prediction(data, timeout=10)

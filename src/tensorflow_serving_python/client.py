@@ -32,7 +32,7 @@ class TFClient(object):
         """
         return self.stub.Predict(request, timeout)
 
-    def make_prediction(self, data, name='inception', timeout=10.):
+    def make_prediction(self, data, name='inception', timeout=10., convert_to_dict=True):
         """
         Make a prediction on a buffer full of image data (tested .jpg as of now)
         :param data: Data buffer
@@ -43,7 +43,20 @@ class TFClient(object):
         request = predict_pb2.PredictRequest()
         request.model_spec.name = name
         proto = tf.contrib.util.make_tensor_proto(data, shape=[1])
+
         # TODO dst.CopyFrom(src) fails here because we compile custom protocolbuffers
         # TODO Proper compiling would speed up the next line by a factor of 10
         copy_message(proto, request.inputs['images'])
-        return self.execute(request, timeout=timeout)
+        response = self.execute(request, timeout=timeout)
+
+        if not convert_to_dict:
+            return response
+
+        # Convert to friendly python object
+        results_dict = {}
+        for key in response.outputs:
+            tensor_proto = response.outputs[key]
+            nd_array = tf.contrib.util.make_ndarray(tensor_proto)
+            results_dict[key] = nd_array
+
+        return results_dict
