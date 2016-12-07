@@ -13,5 +13,18 @@ we use gRPC as the RPC client.
 Check out the source e.g. via ```git clone https://github.com/sebastian-schlecht/tensorflow-serving-python.git``` and run
 ```python setup.py install```.
 
+This package depends on the following pip modules, so you might want to install those first:
+ - Cython
+ - grpcio
+ - grpcio-tools
+ - tensorflow
+ 
+ 
+Alternatively, we produce a python wheel to be installed with:
+```pip install http://www.mealomi.com/storage/tensor_flow_serving_python/tensorflow_serving_python-0.1-py2-none-any.whl```
+
+*Note*
+When running on Linux, make sure pip is upgraded via ```pip install --upgrade pip``` such that TensorFlow is installed correctly.
+
 ### Examples ###
 Examples can be found in the examples folder.
