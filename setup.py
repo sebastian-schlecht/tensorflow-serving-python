@@ -18,13 +18,14 @@ setup(
     license="MIT",
     packages=['tensorflow_serving_python', 'tensorflow_serving_python.protos'],
     package_dir={'': 'src'},
-    setup_requires=[
+    setup_requires=['cython', ],
+    install_requires=[
         'tensorflow',
         'grpcio',
-        'cython',
         'grpcio-tools'
     ],
     cmdclass={
         'install': BuildPackageProtos,
+        'develop': BuildPackageProtos,
     }
 )

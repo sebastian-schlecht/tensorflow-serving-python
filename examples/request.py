@@ -1,11 +1,15 @@
-import os,sys,inspect
-currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
-parentdir = os.path.dirname(currentdir)
-sys.path.insert(0,parentdir)
+import argparse
 
 from tensorflow_serving_python.client import TFClient
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='RPC Test.')
+
+    parser.add_argument('--host', required=True, type=str, help='Hostname to query')
+    parser.add_argument('--port', required=True, type=str, help='Port to query')
+
+    args = parser.parse_args()
+
     data = open("cat.jpg", "rb").read()
-    client = TFClient("localhost", "9000")
-    print client.make_prediction(data)
+    client = TFClient(args.host, args.port)
+    print client.make_prediction(data, timeout=5)

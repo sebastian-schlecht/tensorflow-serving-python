@@ -18,6 +18,7 @@ class TFClient(object):
         """
         self.host = host
         self.port = port
+
         # Setup channel
         self.channel = implementations.insecure_channel(self.host, int(self.port))
         self.stub = prediction_service_pb2.beta_create_PredictionService_stub(self.channel)
