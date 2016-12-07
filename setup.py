@@ -7,9 +7,6 @@ import os
 class BuildPackageProtos(install):
     def run(self):
         install.run(self)
-        os.system('pip install cython')
-        os.system('pip install grpcio')
-        os.system('pip install grpcio-tools')
         from grpc.tools import command
         command.build_package_protos(self.distribution.package_dir[''])
 
