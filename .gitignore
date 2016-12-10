@@ -6,3 +6,4 @@ dist
 .idea
 *.pyc
 .eggs
+.DS_Store
